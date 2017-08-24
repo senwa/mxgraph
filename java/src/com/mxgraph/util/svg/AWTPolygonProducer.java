@@ -34,8 +34,12 @@ public class AWTPolygonProducer extends AWTPolylineProducer
 	 */
 	public static Shape createShape(String text, int wr) throws ParseException
 	{
+		if(text==null||text.trim().length()==0){
+			return null;
+		}
+		
 		AWTPolygonProducer ph = new AWTPolygonProducer();
-
+			
 		ph.setWindingRule(wr);
 		PointsParser p = new PointsParser(ph);
 		p.parse(text);
